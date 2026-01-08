@@ -12,7 +12,7 @@
         {% for item in receitas %}
         <ul>
             <li>
-                {{item.titulo}}
+                <a href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
             </li>
         </ul>
         {% endfor %}

@@ -8,11 +8,12 @@
 </head>
 
 <body>
+    <h1>Categorias</h1>
     <section>
         {% for item in categorias %}
         <ul>
             <li>
-                {{item.nome}}
+                <a href="{% url 'mostrar_categoria' id_categoria=item.id %}">{{item.nome}}</a>
             </li>
         </ul>
         {% endfor %}
