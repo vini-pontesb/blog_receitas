@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Receita, Categoria
+from .forms import ReceitaForm, CategoriaForm
 
 def receitas(request):
     receitas = Receita.objects.all()
@@ -26,3 +27,30 @@ def mostrar_categoria(request, id_categoria):
                'receitas': receitas}
 
     return render(request, 'mostrar_categoria.html', context)
+
+def nova_receita(request):
+    if request.method == 'POST':
+        form_receita = ReceitaForm(request.POST)
+        if form_receita.is_valid():
+            form_receita.save()
+            return redirect('receitas')
+    else:
+        form_receita = ReceitaForm()
+    context = {'form_receita': form_receita}
+    return render(request, 'nova_receita.html', context)
+
+def nova_categoria(request):
+    if request.method == 'POST':
+        form_categoria = CategoriaForm(request.POST)
+        if form_categoria.is_valid():
+            form_categoria.save()
+            return redirect('categorias')
+    else:
+        form_categoria = CategoriaForm()
+    context = {'form_categoria': form_categoria}
+    return render(request, 'nova_categoria.html', context)
+
+def home(request):
+    home = 'home'
+    context = {'home': home}
+    return render(request, 'home.html', context)

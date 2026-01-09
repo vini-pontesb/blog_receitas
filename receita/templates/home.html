@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+</head>
+<body>
+    <h1 style="text-align: center">Blog de Receitas</h1>
+    <h2 style="color: rgb(90, 90, 90);">O que deseja acessar?</h2>
+    <section>
+        <button style="width: 100px; height: 50px"><a href="{% url 'receitas' %}" style="text-decoration: none; color: black; font-size: medium;">Receitas</a></button>
+        <button style="width: 100px; height: 50px"><a href="{% url 'categorias' %}" style="text-decoration: none; color: black; font-size: medium">Categorias</a></button>
+    </section>
+</body>
+</html>
