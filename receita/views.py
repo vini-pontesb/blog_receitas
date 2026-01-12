@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Receita, Categoria
 from .forms import ReceitaForm, CategoriaForm
 
@@ -33,6 +34,7 @@ def nova_receita(request):
         form_receita = ReceitaForm(request.POST)
         if form_receita.is_valid():
             form_receita.save()
+            messages.success(request, "RECEITA SALVA !")
             return redirect('receitas')
     else:
         form_receita = ReceitaForm()
