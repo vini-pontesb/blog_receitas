@@ -6,11 +6,11 @@
     <title>Nova Receita</title>
 </head>
 <body>
-    <h1>Nova Receita</h1>
+    <h1>{% if editar %} Editar {% else %} Nova {% endif %} Receita</h1>
     <form method="post">
         {% csrf_token %}
         {{form_receita.as_p}} <!-- o .as_p formata todo os itens do formulário dentro de um <p></p> -->
-        <button type="submit">Salvar</button>
+        <button type="submit"> {% if editar %} Editar {% else %} Salvar {% endif %}</button>
         <button type="button"><a href="{% url 'receitas' %}" style="text-decoration: none; color: black;" >Cancelar</a></button>
     </form>
 </body>

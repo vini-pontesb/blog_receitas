@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Receita, Categoria
 from .forms import ReceitaForm, CategoriaForm
@@ -56,3 +56,16 @@ def home(request):
     home = 'home'
     context = {'home': home}
     return render(request, 'home.html', context)
+
+def editar_receita (request, id_receita):
+    receita = get_object_or_404(Receita, id = id_receita)
+    if request.method == 'POST':
+        form_receita = ReceitaForm(request.POST, instance=receita) 
+        if form_receita.is_valid():
+            form_receita.save()
+            messages.success(request, "RECEITA EDITADA!")
+            return redirect('receitas')
+    else:
+        form_receita = ReceitaForm(instance=receita)
+    context = {'form_receita': form_receita, 'editar': True}
+    return render(request, 'nova_receita.html', context)

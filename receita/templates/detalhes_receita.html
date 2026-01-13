@@ -15,5 +15,8 @@
         <h3>Modo de preparo</h3>
         <h5>{{receita.modo_preparo}}</h5>
     </section>
+    <section>
+        <button type="button"><a href="{% url 'editar_receita' id_receita=receita.id %}" style="text-decoration: none; color: black;">Editar</a></button>
+    </section>
 </body>
 </html>
