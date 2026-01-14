@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog de Receitas</title>
-</head>
+{% block title %}
+Minhas receitas
+{% endblock %}
 
-<body>
+{% block content %}
     <h1>Receitas</h1>
     {% if messages %}
-        {% for message in messages %}
-            <p style="color: darkgreen;">{{message}}</p>
-        {% endfor %}
+    {% for message in messages %}
+    <p style="color: darkgreen;">{{message}}</p>
+    {% endfor %}
     {% endif %}
+    <section style="padding-bottom: 15px;">
+        <button type="button"><a href="{% url 'nova_receita' %}" style="text-decoration: none; color: black;">Nova
+                Receita</a></button>
+        <button type="button"><a href="{% url 'home' %}" style="text-decoration: none; color: black;">Página
+                Inicial</a></button>
+    </section>
     <section>
         {% for item in receitas %}
         <ul>
@@ -23,10 +26,4 @@
         </ul>
         {% endfor %}
     </section>
-    <section>
-        <button type="button"><a href="{% url 'nova_receita' %}" style="text-decoration: none; color: black;">Nova Receita</a></button>
-        <button type="button"><a href="{% url 'home' %}" style="text-decoration: none; color: black;">Página Inicial</a></button>
-    </section>
-</body>
-
-</html>
+{% endblock %}

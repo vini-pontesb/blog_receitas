@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{categoria.nome}}</title>
-</head>
-<body>
-    <h1>Receitas da categoria: {{categoria.nome}}</h1>
-    <section>
-        {% for item in receitas  %}
-            <ul>
-                <li>
-                    <a href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
-                </li>
-            </ul>
-        {% endfor %}
-    </section>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+{{categoria.nome}}
+{% endblock %}
+
+{% block content %}
+<h2>Receitas da categoria: {{categoria.nome}}</h2>
+<section>
+    {% for item in receitas %}
+    <ul>
+        <li>
+            <a href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
+        </li>
+    </ul>
+    {% endfor %}
+</section>
+{% endblock %}

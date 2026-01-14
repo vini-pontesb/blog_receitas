@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
-</head>
+{% block title %}
+Minhas Categorias
+{% endblock %}
 
-<body>
+{% block header %}
+<header class="masthead"
+    style="background-image: url('assets/img/home-bg.jpg'); padding-top: calc(2rem + 40px); padding-bottom: 2rem;">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
     <h1>Categorias</h1>
+    <section style="padding-bottom: 15px;">
+        <button type="button"><a href="{% url 'nova_categoria' %}" style="text-decoration: none; color: black;">Nova
+                Categoria</a></button>
+        <button type="button"><a href="{% url 'home' %}" style="text-decoration: none; color: black;">Página
+                Inicial</a></button>
+    </section>
     <section>
         {% for item in categorias %}
         <ul>
@@ -18,10 +33,4 @@
         </ul>
         {% endfor %}
     </section>
-    <section>
-        <button type="button"><a href="{% url 'nova_categoria' %}" style="text-decoration: none; color: black;">Nova Categoria</a></button>
-        <button type="button"><a href="{% url 'home' %}" style="text-decoration: none; color: black;">Página Inicial</a></button>
-    </section>
-</body>
-
-</html>
+{% endblock %}

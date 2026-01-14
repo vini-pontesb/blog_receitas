@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Categoria</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+    Nova Categoria
+{% endblock %}
+
+{% block content %}
     <h1>Nova Categoria</h1>
     <form method="post">
         {% csrf_token %}
         {{form_categoria.as_p}}
         <button type="submit">Salvar</button>
-        <button type="button"><a href="{% url 'categorias' %}" style="text-decoration: none; color: black;">Cancelar</a></button>
+        <button type="button"><a href="{% url 'categorias' %}"
+                style="text-decoration: none; color: black;">Cancelar</a></button>
     </form>
-</body>
-</html>
+{% endblock %}

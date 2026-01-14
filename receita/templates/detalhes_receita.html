@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informações | {{receita.titulo}}</title>
-</head>
-<body>
-    <h1>{{receita.titulo}}</h1>
+{% extends 'base.html' %}
+
+{% block title %}
+Informações | {{receita.titulo}}
+{% endblock %}
+    
+{% block content %}
+    <h1 style="color: rgb(0, 0, 0)">{{receita.titulo}}</h1>
     <section>
-        <h3>Ingredientes</h3>
-        <h5>{{receita.ingredientes}}</h5>
+        <h3 style="color: rgb(15, 15, 15)">Ingredientes</h3>
+        <h5 style="color: rgb(44, 44, 44)">{{receita.ingredientes}}</h5>
     </section>
     <section>
-        <h3>Modo de preparo</h3>
-        <h5>{{receita.modo_preparo}}</h5>
+        <h3 style="color: rgb(15, 15, 15)">Modo de preparo</h3>
+        <h5 style="color: rgb(44, 44, 44)">{{receita.modo_preparo}}</h5>
     </section>
     <section>
-        <button type="button"><a href="{% url 'editar_receita' id_receita=receita.id %}" style="text-decoration: none; color: black;">Editar</a></button>
+        <button type="button"><a href="{% url 'editar_receita' id_receita=receita.id %}"
+                style="text-decoration: none; color: black;">Editar</a></button>
     </section>
-</body>
-</html>
+{% endblock %}
