@@ -9,8 +9,7 @@
     <form method="post">
         {% csrf_token %}
         {{form_categoria.as_p}}
-        <button type="submit">Salvar</button>
-        <button type="button"><a href="{% url 'categorias' %}"
-                style="text-decoration: none; color: black;">Cancelar</a></button>
+        <button type="submit" class ="btn btn-secondary">Salvar</button>
+        <a href="{% url 'categorias' %}" class ="btn btn-secondary"">Cancelar</a>
     </form>
 {% endblock %}

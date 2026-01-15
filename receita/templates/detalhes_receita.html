@@ -15,7 +15,7 @@ Informações | {{receita.titulo}}
         <h5 style="color: rgb(44, 44, 44)">{{receita.modo_preparo}}</h5>
     </section>
     <section>
-        <button type="button"><a href="{% url 'editar_receita' id_receita=receita.id %}"
-                style="text-decoration: none; color: black;">Editar</a></button>
+        <a href="{% url 'editar_receita' id_receita=receita.id %}" class="btn btn-secondary">Editar</a>
+        <a href="{% url 'receitas' %}" class="btn btn-secondary">Receitas</a>
     </section>
 {% endblock %}

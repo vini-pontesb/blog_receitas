@@ -26,7 +26,7 @@
 {% block content %}
     <h2 style="color: rgb(90, 90, 90);">O que deseja acessar?</h2>
     <section>
-        <button style="width: 120px; height: 50px"><a href="{% url 'receitas' %}">Receitas</a></button>
-        <button style="width: 120px; height: 50px"><a href="{% url 'categorias' %}">Categorias</a></button>
+        <a href="{% url 'receitas' %}" class="btn btn-secondary">Receitas</a>
+        <a href="{% url 'categorias' %}" class="btn btn-secondary">Categorias</a>
     </section>
 {% endblock %}

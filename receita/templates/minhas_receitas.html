@@ -12,10 +12,8 @@ Minhas receitas
     {% endfor %}
     {% endif %}
     <section style="padding-bottom: 15px;">
-        <button type="button"><a href="{% url 'nova_receita' %}" style="text-decoration: none; color: black;">Nova
-                Receita</a></button>
-        <button type="button"><a href="{% url 'home' %}" style="text-decoration: none; color: black;">Página
-                Inicial</a></button>
+        <a href="{% url 'nova_receita' %}" class ="btn btn-secondary"">Nova Receita</a>
+        <a href="{% url 'home' %}" class ="btn btn-secondary"">Página Inicial</a>
     </section>
     <section>
         {% for item in receitas %}

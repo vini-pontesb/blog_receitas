@@ -19,10 +19,8 @@ Minhas Categorias
 {% block content %}
     <h1>Categorias</h1>
     <section style="padding-bottom: 15px;">
-        <button type="button"><a href="{% url 'nova_categoria' %}" style="text-decoration: none; color: black;">Nova
-                Categoria</a></button>
-        <button type="button"><a href="{% url 'home' %}" style="text-decoration: none; color: black;">Página
-                Inicial</a></button>
+        <a href="{% url 'nova_categoria' %}" class="btn btn-secondary">Nova Categoria</a>
+        <a href="{% url 'home' %}"class="btn btn-secondary">Página Inicial</a>
     </section>
     <section>
         {% for item in categorias %}
