@@ -6,22 +6,49 @@ Minhas receitas
 
 {% block content %}
     <h1>Receitas</h1>
+    
     {% if messages %}
     {% for message in messages %}
     <p style="color: darkgreen;">{{message}}</p>
     {% endfor %}
     {% endif %}
+    
     <section style="padding-bottom: 15px;">
         <a href="{% url 'nova_receita' %}" class ="btn btn-secondary"">Nova Receita</a>
         <a href="{% url 'home' %}" class ="btn btn-secondary"">Página Inicial</a>
     </section>
+    
+    <hr>
+
+    <form action="{% url 'buscar_receita' %}" method="GET">
+        <input type="text" name="titulo" class="p-1 border" autocomplete="off" placeholder="Buscar receita">
+        <button type="submit" class="btn btn-secondary">Buscar</button>
+        <a href="{% url 'receitas' %}" class="btn btn-primary">Limpar</a>
+    </form>
+
+    <hr>
+    
     <section>
-        {% for item in receitas %}
-        <ul>
-            <li>
-                <a href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
-            </li>
-        </ul>
-        {% endfor %}
+        {% if buscar %}
+            {% if receitas_encontradas %}
+                {% for item in receitas_encontradas %}
+                <ul>
+                    <li>
+                        <a href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+            {% else %}
+                Nenhuma receita foi encontrada com esse nome
+            {% endif %}
+        {% else %}
+            {% for item in receitas %}
+            <ul>
+                <li>
+                    <a href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
+                </li>
+            </ul>
+            {% endfor %}
+        {% endif %}
     </section>
 {% endblock %}

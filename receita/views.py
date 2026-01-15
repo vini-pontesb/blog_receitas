@@ -9,6 +9,15 @@ def receitas(request):
 
     return render(request, 'minhas_receitas.html', context)
 
+def buscar_receita(request):
+    titulo_buscado = request.GET.get('titulo')
+    if titulo_buscado:
+        receitas_encontradas = Receita.objects.filter(titulo__icontains=titulo_buscado)
+    else:
+        receitas_encontradas = None
+    context = {'receitas_encontradas': receitas_encontradas, 'buscar': True}
+    return render(request, 'minhas_receitas.html', context)
+
 def categorias(request):
     categorias = Categoria.objects.all()
     context = {'categorias': categorias}

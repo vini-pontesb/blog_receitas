@@ -9,5 +9,6 @@ urlpatterns = [
     path('nova_receita/', views.nova_receita, name="nova_receita"),
     path('nova_categoria/', views.nova_categoria, name="nova_categoria"),
     path('', views.home, name="home"),
-    path('editar_receita/<int:id_receita>', views.editar_receita, name="editar_receita")
+    path('editar_receita/<int:id_receita>', views.editar_receita, name="editar_receita"),
+    path('buscar_receita/', views.buscar_receita, name="buscar_receita")
 ]

@@ -22,6 +22,14 @@ Minhas Categorias
         <a href="{% url 'nova_categoria' %}" class="btn btn-secondary">Nova Categoria</a>
         <a href="{% url 'home' %}"class="btn btn-secondary">Página Inicial</a>
     </section>
+    <hr>
+    <form action="?" method="GET">
+        <input type="text" name="nome" id="" value="{{request.GET.nome}}" class="p-1 border" autocomplete="off"
+            placeholder="Buscar categoria">
+        <button type="submit" class="btn btn-secondary">Buscar</button>
+        <a href="{% url 'categorias' %}" class="btn btn-primary">Limpar</a>
+    </form>
+    <hr>
     <section>
         {% for item in categorias %}
         <ul>
