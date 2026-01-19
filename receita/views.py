@@ -4,7 +4,7 @@ from .models import Receita, Categoria
 from .forms import ReceitaForm, CategoriaForm
 
 def receitas(request):
-    receitas = Receita.objects.all()
+    receitas = Receita.objects.all().order_by('titulo')
     context = {'receitas': receitas}
 
     return render(request, 'minhas_receitas.html', context)
@@ -12,14 +12,14 @@ def receitas(request):
 def buscar_receita(request):
     titulo_buscado = request.GET.get('titulo')
     if titulo_buscado:
-        receitas_encontradas = Receita.objects.filter(titulo__icontains=titulo_buscado)
+        receitas_encontradas = Receita.objects.filter(titulo__icontains=titulo_buscado).order_by('titulo')
     else:
         receitas_encontradas = None
     context = {'receitas_encontradas': receitas_encontradas, 'buscar': True}
     return render(request, 'minhas_receitas.html', context)
 
 def categorias(request):
-    categorias = Categoria.objects.all()
+    categorias = Categoria.objects.all().order_by('nome')
     context = {'categorias': categorias}
 
     return render(request, 'categorias_receitas.html', context)
@@ -40,7 +40,7 @@ def mostrar_categoria(request, id_categoria):
 
 def nova_receita(request):
     if request.method == 'POST':
-        form_receita = ReceitaForm(request.POST)
+        form_receita = ReceitaForm(request.POST, request.FILES)
         if form_receita.is_valid():
             form_receita.save()
             messages.success(request, "RECEITA SALVA !")
@@ -69,7 +69,7 @@ def home(request):
 def editar_receita (request, id_receita):
     receita = get_object_or_404(Receita, id = id_receita)
     if request.method == 'POST':
-        form_receita = ReceitaForm(request.POST, instance=receita) 
+        form_receita = ReceitaForm(request.POST, request.FILES, instance=receita) 
         if form_receita.is_valid():
             form_receita.save()
             messages.success(request, "RECEITA EDITADA!")

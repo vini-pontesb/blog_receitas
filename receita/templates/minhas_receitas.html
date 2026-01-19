@@ -33,8 +33,8 @@ Minhas receitas
             {% if receitas_encontradas %}
                 {% for item in receitas_encontradas %}
                 <ul>
-                    <li>
-                        <a href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
+                    <li class="imagem-card" style="background-image: url('{% if item.foto_receita %}{{ item.foto_receita.url }}{% else %}/static/img/bg-padrao.png{% endif %}')">
+                        <a class="titulo-receita" href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
                     </li>
                 </ul>
                 {% endfor %}
@@ -44,8 +44,8 @@ Minhas receitas
         {% else %}
             {% for item in receitas %}
             <ul>
-                <li>
-                    <a href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
+                <li class="imagem-card" style="background-image: url('{% if item.foto_receita %}{{ item.foto_receita.url }}{% else %}/static/img/bg-padrao.png{% endif %}')">
+                    <a class="titulo-receita" href="{% url 'detalhes_receita' id_receita=item.id %}">{{item.titulo}}</a>
                 </li>
             </ul>
             {% endfor %}

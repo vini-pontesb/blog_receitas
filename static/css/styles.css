@@ -10796,3 +10796,44 @@ header.masthead .post-heading .meta a {
     font-size: 2.25rem;
   }
 }
+
+.imagem-card {
+    /* Remove a bolinha da lista */
+    list-style: none; 
+    
+    /* Dá um tamanho para o card */
+    height: 500px; 
+    width: 300px; /* ou 100% se for responsivo */
+    
+    /* Ajusta a imagem */
+    background-size: cover;
+    background-position: center;
+    
+    /* Arredonda as bordas */
+    border-radius: 10px;
+    
+    /* Posicionamento para conseguir mover o texto lá dentro */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px; /* Espaço entre os itens */
+}
+
+.titulo-receita {
+  /* Faz o link ocupar o card todo (clicável em toda a imagem) */
+  display: flex;
+  align-items: flex-end;
+  /* Texto no rodapé do card */
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  /* Estilo do texto */
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+
+  /* Sombra preta atrás do texto para ler em qualquer imagem */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding-bottom: 10px;
+}

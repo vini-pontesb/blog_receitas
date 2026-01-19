@@ -4,11 +4,11 @@ from .models import Receita, Categoria
 class ReceitaForm(forms.ModelForm):
     class Meta:
         model = Receita
-        fields = ['titulo', 'ingredientes', 'modo_preparo', 'categoria']
+        fields = ['titulo', 'ingredientes', 'modo_preparo', 'categoria', 'foto_receita']
     
     def clean_titulo(self):
         titulo = self.cleaned_data['titulo'].strip()
-        if len(titulo) <= 3:
+        if len(titulo) <= 2:
             raise forms.ValidationError('O título precisa ter ao menos 3 caracteres.')
         return titulo 
 

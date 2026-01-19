@@ -6,7 +6,7 @@ Nova Receita
 
 {% block content %}
     <h1>{% if editar %} Editar {% else %} Nova {% endif %} Receita</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form_receita.as_p}} <!-- o .as_p formata todo os itens do formulário dentro de um <p></p> -->
         <button type="submit" class ="btn btn-secondary"> {% if editar %} Editar {% else %} Salvar {% endif %}</button>

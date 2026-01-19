@@ -12,6 +12,7 @@ class Receita(models.Model):
     modo_preparo = models.TextField()
     data_criacao = models.DateTimeField(auto_now_add=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    foto_receita = models.ImageField(upload_to='fotos/%d/%m/%Y/', blank=True, null=True)
 
     def __str__(self):
         return self.titulo
